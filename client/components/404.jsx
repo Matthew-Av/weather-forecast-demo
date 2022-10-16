@@ -6,7 +6,7 @@ const NotFound = () => {
   useEffect(() => {}, [])
   const dispatch = useDispatch()
   return (
-    <div className="container main-wrapper aligner">
+    <div className="page-container h-screen flex items-center justify-center">
       <div className="aligner-item text-center ">
         <h1 className="display-1">404</h1>
         <p className="lead text-gray-800 mb-5">Page Not Found</p>
@@ -21,7 +21,7 @@ const NotFound = () => {
           }}
         >
           {' '}
-          Back to Dashboard
+          Back to Search
         </button>
       </div>
     </div>
