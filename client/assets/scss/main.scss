@@ -5,11 +5,15 @@
 * {
   font-size: 16px;
 }
+html, body, #root {
+  height: 100%;
+}
 .page-container {
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #b9b9b9;
   flex-direction: column;
+  min-height: 100%;
 }
 .input-form {
   margin-bottom: 30px;

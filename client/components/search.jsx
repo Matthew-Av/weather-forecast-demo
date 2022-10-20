@@ -41,7 +41,8 @@ const IconWthr = (props) => {
 
 const Forecast = (props) => {
   const weatherList = []
-  if (props.dayNum) {
+  let resArr = []
+  if (props.dayNum !== 'undefined') {
     for (let i = 1; i < props.dayNum + 1; i += 1) {
       const exactDay = new Date(props.fData[i].datetime) // fData - weather.days array
       weatherList.push(
@@ -58,27 +59,29 @@ const Forecast = (props) => {
         </div>
       )
     }
+    resArr = weatherList
   }
   if (props.hoursNum) {
-    const dayHours = [...props.fData[0].hours, props.fData[1].hours]
-    for (let i = 1; i <= props.hoursNum + 1; i += 1) {
-      if (dayHours[i].temp !== null || dayHours[i].icon.length > 0) {
+    const dayHours = [...props.fData[0].hours, ...props.fData[1].hours]
+    dayHours.forEach((el) => {
+      if (el.temp || el.icon) {
         weatherList.push(
           <div className="weather-list__element weather-element">
             <div className="weather-element__item time">
-              {dayHours[i].datetime.toString().substring(0, 5)}
+              {el.datetime.toString().substring(0, 5)}
             </div>
-            <IconWthr iconName={dayHours[i].icon} imgClasses="" />
-            <div className="weather-element__item">{dayHours[i].temp}°C</div>
-            <div className="conditions weather-element__item">{dayHours[i].conditions}</div>
+            <IconWthr iconName={el.icon} imgClasses="" />
+            <div className="weather-element__item">{el.temp}°C</div>
+            <div className="conditions weather-element__item">{el.conditions}</div>
           </div>
         )
       }
-    }
+    })
+    resArr = weatherList.slice(0,props.hoursNum)
   }
   return (
     <div className="weather-wraper">
-      <div className="weather-list">{weatherList}</div>
+      <div className="weather-list">{resArr}</div>
     </div>
   )
 }

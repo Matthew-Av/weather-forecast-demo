@@ -14,7 +14,7 @@ const InnerPage = () => {
       <div className="weather-table flex">
         <div className="weather-table__elem">
           <h3 className="h3">Hourly forecast</h3>
-          <ShowWeather cityDefault={cityDet} dayNum={0} weather={weather} hoursNum={10} />
+          <ShowWeather cityDefault={cityDet} weather={weather} hoursNum={10} />
         </div>
         <div className="weather-table__elem">
           <h3 className="h3">10 day forecast</h3>

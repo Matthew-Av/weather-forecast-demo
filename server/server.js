@@ -26,7 +26,7 @@ middleware.forEach((it) => server.use(it))
 
 server.get('/', (req, res) => {
   res.send(`
-    <h2>This is SkillCrucial Express Server!</h2>
+    <h2>This is Express Server!</h2>
     <h3>Client hosted at <a href="http://localhost:8087">localhost:8087</a>!</h3>
   `)
 })

@@ -13,7 +13,7 @@ const MainPage = () => {
   const [someCity, setSomeCity] = useState(localStorage.getItem('savedCity') || 'Minsk')
   const [weather, setWeather] = useState({})
   return (
-    <div className="page-container h-screen flex items-center justify-center">
+    <div className="page-container flex items-center justify-center">
       <GetCoords setSomeCity={setSomeCity} />
       <GetWeather cityDefault={someCity} setWeather={setWeather} />
       <SearchForm setSomeCity={setSomeCity} />
